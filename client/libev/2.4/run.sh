@@ -3,10 +3,12 @@
 POLIPO_CACHE=/var/cache/polipo
 mkdir -p "$POLIPO_CACHE"
 
-polipo proxyAddress="::0" \
-       diskCacheRoot="$POLIPO_CACHE"
-       socksParentProxy="127.0.0.1:${LOCAL_PORT}" \
-       socksProxyType=socks5 &
+[ "$PROGRAM" = "ss-local" ] && {
+    polipo proxyAddress="::0" \
+           diskCacheRoot="$POLIPO_CACHE" \
+           socksParentProxy="127.0.0.1:${LOCAL_PORT}" \
+           socksProxyType=socks5 &
+}
 
 exec $PROGRAM -s "$SERVER_ADDR" \
               -p "$SERVER_PORT" \
