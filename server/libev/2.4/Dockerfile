@@ -8,7 +8,7 @@ ENV SS_DEP autoconf build-base curl libtool linux-headers openssl-dev
 COPY ./run.sh /
 
 RUN set -ex \
-    && apk add --update $SS_DEP \
+    && apk add --update $SS_DEP dnsmasq \
     && curl -sSL $SS_URL | tar xz \
     && cd $SS_DIR \
         && ./configure \
