@@ -16,6 +16,7 @@ fi
 docker build -t $IMAGE -f Dockerfile .
 echo $IMAGE >> "$PUSH_LIST"
 
+
 for x in $TAGS; do
     alias=${IMAGE%%:*}:$x
     docker tag $IMAGE $alias
