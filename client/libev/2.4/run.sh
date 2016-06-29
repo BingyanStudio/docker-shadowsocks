@@ -8,7 +8,7 @@ polipo proxyAddress="::0" \
        socksParentProxy="127.0.0.1:${LOCAL_PORT}" \
        socksProxyType=socks5 &
 
-exec ss-local -s "$SERVER_ADDR" \
+exec $PROGRAM -s "$SERVER_ADDR" \
               -p "$SERVER_PORT" \
               -l "$LOCAL_PORT" \
               -b "$LOCAL_ADDR" \
