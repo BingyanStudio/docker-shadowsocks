@@ -4,7 +4,7 @@ set -xe
 
 cd "$SUBDIR"
 
-VERSION=$(dirname $(pwd))
+VERSION=$(basename $(pwd))
 IMAGE=${IMAGE_PREFIX}shadowsocks:${TAG_PREFIX}${VERSION}
 
 if [ -f .version ]; then
@@ -15,7 +15,6 @@ fi
 
 docker build -t $IMAGE -f Dockerfile .
 echo $IMAGE >> "$PUSH_LIST"
-
 
 for x in $TAGS; do
     alias=${IMAGE%%:*}:$x
