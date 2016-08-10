@@ -7,6 +7,7 @@ env:
     - PUSH_LIST=/tmp/push_list
   matrix:
     - SUBDIR=server/libev/2.4 TAG_PREFIX="server-"
+    - SUBDIR=forward/1.6 TAG_PREFIX="forward-"
     - SUBDIR=client/libev/2.4 TAGS="latest"
 
 script:
